@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0c0f" />
+  <title>NEXUS — технологии, которые работают на вас.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="topbar">Бесплатная доставка от 10 000 ₽ · Гарантия до 2 лет · Официальная техника</div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="NEXUS">NEXUS<span>.</span></a>
+      <nav class="desktop-nav">
+        <a href="#catalog">Каталог</a><a href="#catalog" data-filter-link="smartphone">Смартфоны</a><a href="#catalog" data-filter-link="laptop">Ноутбуки</a><a href="#catalog" data-filter-link="audio">Аудио</a><a href="#catalog" data-filter-link="accessory">Аксессуары</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn search-trigger" aria-label="Поиск">⌕</button>
+        <button class="icon-btn favorites-btn" aria-label="Избранное">♡<span class="mini-count">0</span></button>
+        <button class="cart-pill" id="openCart">Корзина <span id="cartCount">0</span></button>
+        <button class="menu-btn" id="menuBtn" aria-label="Меню">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#catalog">Каталог</a><a href="#catalog" data-filter-link="smartphone">Смартфоны</a><a href="#catalog" data-filter-link="laptop">Ноутбуки</a><a href="#catalog" data-filter-link="audio">Аудио</a><a href="#catalog" data-filter-link="accessory">Аксессуары</a>
+      <button class="mobile-cart" id="openCartMobile">Открыть корзину</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">NEXUS / NEW GENERATION</div>
+          <h1>Технологии,<br><span>которые работают</span><br>на вас.</h1>
+          <p>Смартфоны, ноутбуки и гаджеты с официальной гарантией — без лишнего шума и сложного выбора.</p>
+          <div class="hero-actions"><a href="#catalog" class="btn btn-primary">Смотреть новинки <span>→</span></a><a href="#benefits" class="text-link">Почему NEXUS?</a></div>
+          <div class="hero-stats"><div><strong>24 ч</strong><span>доставка по городу</span></div><div><strong>4.9/5</strong><span>средняя оценка</span></div><div><strong>2 года</strong><span>официальной гарантии</span></div></div>
+        </div>
+        <div class="hero-product">
+          <div class="hero-badge">NEW</div>
+          <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=1200&q=90" alt="Флагманский смартфон" />
+          <div class="hero-float"><span>NEO X Pro</span><strong>89 990 ₽</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">BEST OF NEXUS</div><h2>Новинки</h2></div><button class="ghost-btn" id="showAll">Смотреть все →</button></div>
+        <div class="products-grid" id="featuredProducts"></div>
+      </div>
+    </section>
+
+    <section class="section categories-section">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">EXPLORE</div><h2>Выберите категорию</h2></div></div>
+        <div class="category-grid">
+          <button class="category-card tall" data-filter-category="smartphone"><span>01</span><div><h3>Смартфоны</h3><p>Флагманы, камеры и всё самое быстрое.</p></div><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85" alt="Смартфон"></button>
+          <button class="category-card" data-filter-category="laptop"><span>02</span><div><h3>Ноутбуки</h3><p>Для работы, творчества и игр.</p></div><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85" alt="Ноутбук"></button>
+          <button class="category-card" data-filter-category="tablet"><span>03</span><div><h3>Планшеты</h3><p>Большой экран. Минимум компромиссов.</p></div><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=900&q=85" alt="Планшет"></button>
+          <button class="category-card" data-filter-category="audio"><span>04</span><div><h3>Наушники</h3><p>Звук, который не хочется выключать.</p></div><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Наушники"></button>
+          <button class="category-card" data-filter-category="watch"><span>05</span><div><h3>Умные часы</h3><p>Фитнес, уведомления и контроль дня.</p></div><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=85" alt="Умные часы"></button>
+          <button class="category-card" data-filter-category="accessory"><span>06</span><div><h3>Аксессуары</h3><p>Зарядка, защита и полезные мелочи.</p></div><img src="assets/accessories.svg" alt="Аксессуары"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog-section">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">CATALOG</div><h2>Весь каталог</h2></div><div class="result-count" id="resultCount"></div></div>
+        <div class="catalog-toolbar">
+          <div class="filters" id="filters">
+            <button class="filter-btn active" data-filter="all">Все</button><button class="filter-btn" data-filter="smartphone">Смартфоны</button><button class="filter-btn" data-filter="laptop">Ноутбуки</button><button class="filter-btn" data-filter="tablet">Планшеты</button><button class="filter-btn" data-filter="audio">Аудио</button><button class="filter-btn" data-filter="watch">Часы</button><button class="filter-btn" data-filter="accessory">Аксессуары</button>
+          </div>
+          <select class="sort-select" id="sortSelect"><option value="popular">Сначала популярные</option><option value="priceAsc">Цена: по возрастанию</option><option value="priceDesc">Цена: по убыванию</option><option value="rating">С высоким рейтингом</option></select>
+        </div>
+        <div class="catalog-layout">
+          <aside class="filter-panel">
+            <div class="filter-title">Фильтры <button id="resetFilters">Сбросить</button></div>
+            <label>Цена</label><div class="range-row"><input id="minPrice" type="number" value="0" min="0"><span>—</span><input id="maxPrice" type="number" value="200000" min="0"></div>
+            <label>Рейтинг</label><div class="rating-filters"><button data-rating="4.5">4.5+</button><button data-rating="4.7">4.7+</button><button data-rating="4.9">4.9</button></div>
+            <label>Наличие</label><label class="check"><input type="checkbox" id="inStockOnly"> <span>Только в наличии</span></label>
+          </aside>
+          <div class="catalog-products" id="catalogProducts"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-banner"><div class="container feature-banner-inner"><div><div class="eyebrow">NEXUS CARE</div><h2>Техника, которой можно доверять.</h2><p>Мы проверяем поставки, даём официальную гарантию и помогаем настроить устройство после покупки.</p></div><a class="btn btn-dark" href="#benefits">Подробнее <span>→</span></a></div></section>
+
+    <section class="section" id="benefits">
+      <div class="container"><div class="section-head"><div><div class="eyebrow">WHY NEXUS</div><h2>Всё просто</h2></div></div>
+      <div class="benefits-grid"><div class="benefit"><span>01</span><h3>Быстрая доставка</h3><p>Привезём заказ в удобное время. Доставка по городу — от 2 часов.</p></div><div class="benefit"><span>02</span><h3>Гарантия</h3><p>До 24 месяцев официальной гарантии и понятные условия сервиса.</p></div><div class="benefit"><span>03</span><h3>Официальная техника</h3><p>Только оригинальные устройства и проверенные поставщики.</p></div><div class="benefit"><span>04</span><h3>Поддержка</h3><p>Поможем выбрать устройство, перенести данные и разобраться с настройкой.</p></div></div></div>
+    </section>
+
+    <section class="section reviews-section"><div class="container"><div class="section-head"><div><div class="eyebrow">REAL PEOPLE</div><h2>Что говорят покупатели</h2></div></div><div class="reviews"><article><div class="review-top"><strong>Анна Л.</strong><span>★★★★★</span></div><p>«Заказала смартфон вечером, утром уже забрала. Очень приятный сайт и нормальная поддержка — без километров переписки.»</p><small>Покупка: NEO X Pro</small></article><article><div class="review-top"><strong>Максим Р.</strong><span>★★★★★</span></div><p>«Брал ноутбук для работы. Понравилось, что характеристики объясняют человеческим языком, а не просто кидают таблицу на 40 строк.»</p><small>Покупка: AeroBook 14</small></article><article><div class="review-top"><strong>Ирина С.</strong><span>★★★★★</span></div><p>«Наушники приехали на следующий день. Упаковка идеальная, гарантия оформлена, вопросов ноль.»</p><small>Покупка: Pulse Max</small></article></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="container footer-grid"><div><a class="logo footer-logo" href="#top">NEXUS<span>.</span></a><p>Современная электроника для жизни, работы и всего, что происходит между ними.</p><small>© 2026 NEXUS. Демонстрационный проект SpecialBlack.</small></div><div><h4>Каталог</h4><a href="#catalog">Смартфоны</a><a href="#catalog">Ноутбуки</a><a href="#catalog">Планшеты</a><a href="#catalog">Аудио</a></div><div><h4>Покупателям</h4><a href="#benefits">Доставка</a><a href="#benefits">Гарантия</a><a href="#benefits">Поддержка</a><a href="#benefits">Условия</a></div><div><h4>Контакты</h4><a href="tel:+78005553535">8 800 555-35-35</a><a href="mailto:hello@nexus-store.ru">hello@nexus-store.ru</a><span>Ежедневно, 09:00–22:00</span></div></div></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer"><div class="drawer-head"><h3>Корзина</h3><button class="close-btn" id="closeCart">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-empty" id="cartEmpty"><div class="empty-icon">□</div><h4>Здесь пока пусто</h4><p>Добавьте товары, и они появятся здесь.</p></div><div class="cart-summary"><div><span>Итого</span><strong id="cartTotal">0 ₽</strong></div><button class="btn btn-primary checkout">Оформить заказ</button><small>Демонстрационная логика оформления заказа.</small></div></aside>
+
+  <div class="modal" id="productModal"><div class="modal-card"><button class="modal-close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+  <div class="toast" id="toast">Товар добавлен в корзину</div>
+  <script src="app.js"></script>
+</body>
+</html>
