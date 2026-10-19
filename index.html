@@ -1,113 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0b0c0f" />
-  <title>NEXUS — технологии, которые работают на вас.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111512">
+  <meta name="description" content="NEXUS — демонстрационный магазин современной электроники. Изучите каталог, соберите корзину и оформите пробный заказ.">
+  <title>NEXUS — техника для жизни</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="topbar">Бесплатная доставка от 10 000 ₽ · Гарантия до 2 лет · Официальная техника</div>
-  <header class="header">
+  <div class="announcement"><span class="announcement-dot"></span> Демо-магазин электроники <span class="announcement-separator">·</span> Все заказы учебные</div>
+  <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#top" aria-label="NEXUS">NEXUS<span>.</span></a>
-      <nav class="desktop-nav">
-        <a href="#catalog">Каталог</a><a href="#catalog" data-filter-link="smartphone">Смартфоны</a><a href="#catalog" data-filter-link="laptop">Ноутбуки</a><a href="#catalog" data-filter-link="audio">Аудио</a><a href="#catalog" data-filter-link="accessory">Аксессуары</a>
+      <a class="brand" href="#top" aria-label="NEXUS — на главную"><span class="brand-mark">N</span><span>NEXUS<span class="brand-period">.</span></span></a>
+      <nav class="desktop-nav" aria-label="Главная навигация">
+        <a href="#catalog" data-filter-link="all">Каталог</a>
+        <a href="#catalog" data-filter-link="smartphone">Смартфоны</a>
+        <a href="#catalog" data-filter-link="laptop">Ноутбуки</a>
+        <a href="#catalog" data-filter-link="audio">Аудио</a>
+        <a href="#service">Сервис</a>
       </nav>
       <div class="header-actions">
-        <button class="icon-btn search-trigger" aria-label="Поиск">⌕</button>
-        <button class="icon-btn favorites-btn" aria-label="Избранное">♡<span class="mini-count">0</span></button>
-        <button class="cart-pill" id="openCart">Корзина <span id="cartCount">0</span></button>
-        <button class="menu-btn" id="menuBtn" aria-label="Меню">☰</button>
+        <button class="header-icon" type="button" id="openSearch" aria-label="Открыть поиск" title="Поиск"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg></button>
+        <button class="header-icon favorite-shortcut" type="button" id="openFavorites" aria-label="Открыть избранное" title="Избранное"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 5.8a5.1 5.1 0 0 0-7.2 0L12 6.9l-1.1-1.1a5.1 5.1 0 0 0-7.2 7.2l1.1 1.1L12 21l7.2-6.9 1.1-1.1a5.1 5.1 0 0 0 0-7.2Z"/></svg><span class="count-badge" id="favoriteCount">0</span></button>
+        <button class="cart-button" type="button" id="openCart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span>Корзина</span><span class="cart-count" id="cartCount">0</span></button>
+        <button class="menu-button" type="button" id="menuBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span></button>
       </div>
     </div>
-    <div class="mobile-nav" id="mobileNav">
-      <a href="#catalog">Каталог</a><a href="#catalog" data-filter-link="smartphone">Смартфоны</a><a href="#catalog" data-filter-link="laptop">Ноутбуки</a><a href="#catalog" data-filter-link="audio">Аудио</a><a href="#catalog" data-filter-link="accessory">Аксессуары</a>
-      <button class="mobile-cart" id="openCartMobile">Открыть корзину</button>
-    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация" hidden>
+      <a href="#catalog" data-filter-link="all">Весь каталог</a><a href="#catalog" data-filter-link="smartphone">Смартфоны</a><a href="#catalog" data-filter-link="laptop">Ноутбуки</a><a href="#catalog" data-filter-link="audio">Аудио</a><a href="#service">Сервис и гарантия</a>
+      <button type="button" class="mobile-cart-button" id="openCartMobile">Открыть корзину <span id="mobileCartCount">0</span></button>
+    </nav>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero section-wrap" aria-labelledby="heroTitle">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">NEXUS / NEW GENERATION</div>
-          <h1>Технологии,<br><span>которые работают</span><br>на вас.</h1>
-          <p>Смартфоны, ноутбуки и гаджеты с официальной гарантией — без лишнего шума и сложного выбора.</p>
-          <div class="hero-actions"><a href="#catalog" class="btn btn-primary">Смотреть новинки <span>→</span></a><a href="#benefits" class="text-link">Почему NEXUS?</a></div>
-          <div class="hero-stats"><div><strong>24 ч</strong><span>доставка по городу</span></div><div><strong>4.9/5</strong><span>средняя оценка</span></div><div><strong>2 года</strong><span>официальной гарантии</span></div></div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> ТЕХНИКА ДЛЯ ЖИЗНИ</div>
+          <h1 id="heroTitle">Больше, чем<br><span>просто гаджеты.</span></h1>
+          <p class="hero-lead">Хорошая техника освобождает время для важного. Подобрали устройства, которые помогают работать, отдыхать и быть на связи.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#featured">Выбрать устройство <span aria-hidden="true">→</span></a><a class="hero-text-link" href="#service">Как устроен NEXUS <span aria-hidden="true">↓</span></a></div>
+          <div class="hero-note"><span class="note-check">✓</span><span>Это демонстрационный магазин. Покупки и оплата не производятся.</span></div>
         </div>
-        <div class="hero-product">
-          <div class="hero-badge">NEW</div>
-          <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=1200&q=90" alt="Флагманский смартфон" />
-          <div class="hero-float"><span>NEO X Pro</span><strong>89 990 ₽</strong></div>
+        <div class="hero-visual">
+          <div class="hero-image-frame"><img src="assets/neo-x-pro.svg" alt="Иллюстрация смартфона NEO X Pro"></div>
+          <div class="hero-image-label"><span class="label-overline">НОВИНКА СЕЗОНА</span><strong>NEO X Pro</strong><span>Камера, которая видит больше</span></div>
+          <div class="hero-index">01 <span>/</span> 06</div>
+          <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
         </div>
+      </div>
+      <div class="container trust-strip"><div><strong>01</strong><span>Понятный выбор<br>без перегруза</span></div><div><strong>02</strong><span>Характеристики<br>человеческим языком</span></div><div><strong>03</strong><span>Сценарий покупки<br>от начала до конца</span></div><a href="#catalog">Исследовать каталог <span aria-hidden="true">→</span></a></div>
+    </section>
+
+    <section class="section section-featured" id="featured">
+      <div class="container">
+        <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> ВЫБОР NEXUS</div><h2>Техника на каждый день</h2></div><button class="text-button" type="button" id="showAll">Весь каталог <span aria-hidden="true">→</span></button></div>
+        <div class="product-grid" id="featuredProducts" aria-live="polite"></div>
       </div>
     </section>
 
-    <section class="section" id="catalog">
+    <section class="section category-section" aria-labelledby="categoryTitle">
       <div class="container">
-        <div class="section-head"><div><div class="eyebrow">BEST OF NEXUS</div><h2>Новинки</h2></div><button class="ghost-btn" id="showAll">Смотреть все →</button></div>
-        <div class="products-grid" id="featuredProducts"></div>
-      </div>
-    </section>
-
-    <section class="section categories-section">
-      <div class="container">
-        <div class="section-head"><div><div class="eyebrow">EXPLORE</div><h2>Выберите категорию</h2></div></div>
+        <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> НАЙДИТЕ СВОЁ</div><h2 id="categoryTitle">Исследуйте категории</h2></div><p class="heading-aside">От компактных мелочей до техники,<br>которая меняет привычный ритм.</p></div>
         <div class="category-grid">
-          <button class="category-card tall" data-filter-category="smartphone"><span>01</span><div><h3>Смартфоны</h3><p>Флагманы, камеры и всё самое быстрое.</p></div><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85" alt="Смартфон"></button>
-          <button class="category-card" data-filter-category="laptop"><span>02</span><div><h3>Ноутбуки</h3><p>Для работы, творчества и игр.</p></div><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85" alt="Ноутбук"></button>
-          <button class="category-card" data-filter-category="tablet"><span>03</span><div><h3>Планшеты</h3><p>Большой экран. Минимум компромиссов.</p></div><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=900&q=85" alt="Планшет"></button>
-          <button class="category-card" data-filter-category="audio"><span>04</span><div><h3>Наушники</h3><p>Звук, который не хочется выключать.</p></div><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Наушники"></button>
-          <button class="category-card" data-filter-category="watch"><span>05</span><div><h3>Умные часы</h3><p>Фитнес, уведомления и контроль дня.</p></div><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=85" alt="Умные часы"></button>
-          <button class="category-card" data-filter-category="accessory"><span>06</span><div><h3>Аксессуары</h3><p>Зарядка, защита и полезные мелочи.</p></div><img src="assets/accessories.svg" alt="Аксессуары"></button>
+          <button class="category-card category-phone" type="button" data-filter-category="smartphone"><span class="category-number">01 / MOBILE</span><span class="category-name">Смартфоны <span>→</span></span><img src="assets/neo-x-pro.svg" alt="" loading="lazy"></button>
+          <button class="category-card category-laptop" type="button" data-filter-category="laptop"><span class="category-number">02 / WORK</span><span class="category-name">Ноутбуки <span>→</span></span><img src="assets/aerobook.svg" alt="" loading="lazy"></button>
+          <button class="category-card category-audio" type="button" data-filter-category="audio"><span class="category-number">03 / SOUND</span><span class="category-name">Аудио <span>→</span></span><img src="assets/pulse-max.svg" alt="" loading="lazy"></button>
+          <button class="category-card category-everyday" type="button" data-filter-category="accessory"><span class="category-number">04 / EVERYDAY</span><span class="category-name">Аксессуары <span>→</span></span><img src="assets/accessories.svg" alt="" loading="lazy"></button>
         </div>
       </div>
     </section>
 
-    <section class="section catalog-section">
+    <section class="section catalog-section" id="catalog" aria-labelledby="catalogTitle">
       <div class="container">
-        <div class="section-head"><div><div class="eyebrow">CATALOG</div><h2>Весь каталог</h2></div><div class="result-count" id="resultCount"></div></div>
+        <div class="section-heading catalog-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> ПОДБЕРИТЕ СВОЁ</div><h2 id="catalogTitle">Весь каталог</h2></div><div class="result-count" id="resultCount" aria-live="polite"></div></div>
         <div class="catalog-toolbar">
-          <div class="filters" id="filters">
-            <button class="filter-btn active" data-filter="all">Все</button><button class="filter-btn" data-filter="smartphone">Смартфоны</button><button class="filter-btn" data-filter="laptop">Ноутбуки</button><button class="filter-btn" data-filter="tablet">Планшеты</button><button class="filter-btn" data-filter="audio">Аудио</button><button class="filter-btn" data-filter="watch">Часы</button><button class="filter-btn" data-filter="accessory">Аксессуары</button>
+          <div class="filter-chips" id="filters" aria-label="Категории товаров">
+            <button class="filter-chip active" type="button" data-filter="all" aria-pressed="true">Все товары</button><button class="filter-chip" type="button" data-filter="smartphone" aria-pressed="false">Смартфоны</button><button class="filter-chip" type="button" data-filter="laptop" aria-pressed="false">Ноутбуки</button><button class="filter-chip" type="button" data-filter="tablet" aria-pressed="false">Планшеты</button><button class="filter-chip" type="button" data-filter="audio" aria-pressed="false">Аудио</button><button class="filter-chip" type="button" data-filter="watch" aria-pressed="false">Часы</button><button class="filter-chip" type="button" data-filter="accessory" aria-pressed="false">Аксессуары</button>
           </div>
-          <select class="sort-select" id="sortSelect"><option value="popular">Сначала популярные</option><option value="priceAsc">Цена: по возрастанию</option><option value="priceDesc">Цена: по убыванию</option><option value="rating">С высоким рейтингом</option></select>
+          <label class="sort-control"><span>Сортировка</span><select id="sortSelect" aria-label="Сортировать товары"><option value="popular">Сначала популярные</option><option value="priceAsc">Сначала дешевле</option><option value="priceDesc">Сначала дороже</option><option value="rating">По рейтингу</option></select></label>
         </div>
         <div class="catalog-layout">
-          <aside class="filter-panel">
-            <div class="filter-title">Фильтры <button id="resetFilters">Сбросить</button></div>
-            <label>Цена</label><div class="range-row"><input id="minPrice" type="number" value="0" min="0"><span>—</span><input id="maxPrice" type="number" value="200000" min="0"></div>
-            <label>Рейтинг</label><div class="rating-filters"><button data-rating="4.5">4.5+</button><button data-rating="4.7">4.7+</button><button data-rating="4.9">4.9</button></div>
-            <label>Наличие</label><label class="check"><input type="checkbox" id="inStockOnly"> <span>Только в наличии</span></label>
+          <aside class="filter-panel" aria-label="Дополнительные фильтры">
+            <div class="filter-panel-heading"><strong>Уточнить выбор</strong><button id="resetFilters" type="button">Сбросить</button></div>
+            <fieldset class="filter-group"><legend>Цена, ₽</legend><div class="price-inputs"><label><span>От</span><input id="minPrice" type="number" value="0" min="0" inputmode="numeric" aria-label="Минимальная цена"></label><span class="price-dash">—</span><label><span>До</span><input id="maxPrice" type="number" value="200000" min="0" inputmode="numeric" aria-label="Максимальная цена"></label></div></fieldset>
+            <fieldset class="filter-group"><legend>Рейтинг покупателей</legend><div class="rating-filters"><button type="button" data-rating="4.5" aria-pressed="false">4.5+</button><button type="button" data-rating="4.7" aria-pressed="false">4.7+</button><button type="button" data-rating="4.9" aria-pressed="false">4.9</button></div></fieldset>
+            <label class="stock-filter"><input type="checkbox" id="inStockOnly"><span class="custom-checkbox"></span><span>Есть в наличии</span></label>
+            <div class="filter-demo-note">Здесь можно попробовать фильтры — заказ остаётся демонстрационным.</div>
           </aside>
-          <div class="catalog-products" id="catalogProducts"></div>
+          <div class="catalog-results"><div class="favorites-notice" id="favoritesNotice" hidden>Показаны сохранённые товары <button type="button" id="leaveFavorites">Вернуться в каталог</button></div><div class="product-grid catalog-products" id="catalogProducts" aria-live="polite"></div></div>
         </div>
       </div>
     </section>
 
-    <section class="feature-banner"><div class="container feature-banner-inner"><div><div class="eyebrow">NEXUS CARE</div><h2>Техника, которой можно доверять.</h2><p>Мы проверяем поставки, даём официальную гарантию и помогаем настроить устройство после покупки.</p></div><a class="btn btn-dark" href="#benefits">Подробнее <span>→</span></a></div></section>
-
-    <section class="section" id="benefits">
-      <div class="container"><div class="section-head"><div><div class="eyebrow">WHY NEXUS</div><h2>Всё просто</h2></div></div>
-      <div class="benefits-grid"><div class="benefit"><span>01</span><h3>Быстрая доставка</h3><p>Привезём заказ в удобное время. Доставка по городу — от 2 часов.</p></div><div class="benefit"><span>02</span><h3>Гарантия</h3><p>До 24 месяцев официальной гарантии и понятные условия сервиса.</p></div><div class="benefit"><span>03</span><h3>Официальная техника</h3><p>Только оригинальные устройства и проверенные поставщики.</p></div><div class="benefit"><span>04</span><h3>Поддержка</h3><p>Поможем выбрать устройство, перенести данные и разобраться с настройкой.</p></div></div></div>
+    <section class="service-section" id="service">
+      <div class="container service-grid"><div class="service-mark"><span>N.</span><span class="service-ring"></span></div><div class="service-copy"><div class="eyebrow eyebrow-light"><span class="eyebrow-line"></span> NEXUS CARE</div><h2>Технологии должны<br>быть <em>простыми.</em></h2><p>Поэтому мы объясняем, сравниваем и показываем путь покупки. Эта версия сайта создана для знакомства с магазином: заказ можно пройти, но он никуда не отправляется.</p><a href="#howItWorks" class="button button-light">Как это работает <span aria-hidden="true">↓</span></a></div><div class="service-aside"><span>ПРОСТРАНСТВО ДЛЯ ТЕХНОЛОГИЙ</span><div class="service-aside-line"></div><span>БЕЗ ЛИШНЕГО ШУМА</span></div></div>
     </section>
 
-    <section class="section reviews-section"><div class="container"><div class="section-head"><div><div class="eyebrow">REAL PEOPLE</div><h2>Что говорят покупатели</h2></div></div><div class="reviews"><article><div class="review-top"><strong>Анна Л.</strong><span>★★★★★</span></div><p>«Заказала смартфон вечером, утром уже забрала. Очень приятный сайт и нормальная поддержка — без километров переписки.»</p><small>Покупка: NEO X Pro</small></article><article><div class="review-top"><strong>Максим Р.</strong><span>★★★★★</span></div><p>«Брал ноутбук для работы. Понравилось, что характеристики объясняют человеческим языком, а не просто кидают таблицу на 40 строк.»</p><small>Покупка: AeroBook 14</small></article><article><div class="review-top"><strong>Ирина С.</strong><span>★★★★★</span></div><p>«Наушники приехали на следующий день. Упаковка идеальная, гарантия оформлена, вопросов ноль.»</p><small>Покупка: Pulse Max</small></article></div></div></section>
+    <section class="section benefits-section" id="howItWorks">
+      <div class="container"><div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> МЫСЛЬ ПРОСТО</div><h2>Покупка без сложностей</h2></div><p class="heading-aside">Пройдите весь путь магазина<br>и посмотрите, как всё устроено.</p></div>
+        <div class="benefit-grid"><article class="benefit-card"><span class="benefit-number">01</span><div class="benefit-icon">⌕</div><h3>Выберите</h3><p>Найдите товар через категории, поиск или фильтры и сохраните понравившееся.</p></article><article class="benefit-card"><span class="benefit-number">02</span><div class="benefit-icon">＋</div><h3>Сравните</h3><p>Откройте характеристики, выберите цвет и соберите подходящую конфигурацию.</p></article><article class="benefit-card"><span class="benefit-number">03</span><div class="benefit-icon">→</div><h3>Оформите демо-заказ</h3><p>Заполните форму — мы покажем итоговую страницу без оплаты и отправки данных.</p></article></div>
+      </div>
+    </section>
+
+    <section class="section reviews-section" id="reviews"><div class="container"><div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> ВПЕЧАТЛЕНИЯ</div><h2>Люди и технологии</h2></div><span class="review-score"><span>★★★★★</span> 4.9 / 5</span></div><div class="review-grid"><article class="review-card"><div class="review-stars">★★★★★</div><blockquote>«Впервые характеристики не выглядят как инструкция к космическому кораблю. Выбрал за пару минут.»</blockquote><div class="review-author"><span class="author-avatar">АК</span><span><strong>Алексей К.</strong><small>Выбирал смартфон</small></span></div></article><article class="review-card"><div class="review-stars">★★★★★</div><blockquote>«Спокойный, красивый магазин. Понравилось сравнивать варианты и смотреть детали товара.»</blockquote><div class="review-author"><span class="author-avatar avatar-lilac">МР</span><span><strong>Мария Р.</strong><small>Выбирала ноутбук</small></span></div></article><article class="review-card"><div class="review-stars">★★★★★</div><blockquote>«Корзина и оформление работают понятно. Для демонстрационного проекта это очень цельно.»</blockquote><div class="review-author"><span class="author-avatar avatar-amber">ДВ</span><span><strong>Дмитрий В.</strong><small>Выбирал аксессуары</small></span></div></article></div></div></section>
+
+    <section class="faq-section section"><div class="container faq-layout"><div><div class="eyebrow"><span class="eyebrow-line"></span> ЧАСТЫЕ ВОПРОСЫ</div><h2>Перед тем<br>как начать</h2></div><div class="faq-list"><details><summary>Это настоящий магазин?<span>＋</span></summary><p>Нет, это демонстрационный сайт. Каталог, избранное, корзина и оформление заказа работают в браузере, но данные никуда не отправляются.</p></details><details><summary>Нужно ли регистрироваться?<span>＋</span></summary><p>Нет. Корзина и избранное сохраняются в этом браузере автоматически. Регистрация и серверная часть в демо не используются.</p></details><details><summary>Будет ли списана оплата?<span>＋</span></summary><p>Нет. В форме оформления нет платежного шлюза, а подтверждение заказа только показывает демонстрационный экран.</p></details></div></div></section>
   </main>
 
-  <footer class="footer"><div class="container footer-grid"><div><a class="logo footer-logo" href="#top">NEXUS<span>.</span></a><p>Современная электроника для жизни, работы и всего, что происходит между ними.</p><small>© 2026 NEXUS. Демонстрационный проект SpecialBlack.</small></div><div><h4>Каталог</h4><a href="#catalog">Смартфоны</a><a href="#catalog">Ноутбуки</a><a href="#catalog">Планшеты</a><a href="#catalog">Аудио</a></div><div><h4>Покупателям</h4><a href="#benefits">Доставка</a><a href="#benefits">Гарантия</a><a href="#benefits">Поддержка</a><a href="#benefits">Условия</a></div><div><h4>Контакты</h4><a href="tel:+78005553535">8 800 555-35-35</a><a href="mailto:hello@nexus-store.ru">hello@nexus-store.ru</a><span>Ежедневно, 09:00–22:00</span></div></div></footer>
+  <footer class="site-footer"><div class="container footer-main"><div class="footer-about"><a class="brand brand-footer" href="#top"><span class="brand-mark">N</span><span>NEXUS<span class="brand-period">.</span></span></a><p>Место, где современные технологии становятся понятнее.</p><span class="footer-demo-label"><span></span> ДЕМОНСТРАЦИОННЫЙ ПРОЕКТ</span></div><div class="footer-column"><strong>Каталог</strong><a href="#catalog" data-filter-link="smartphone">Смартфоны</a><a href="#catalog" data-filter-link="laptop">Ноутбуки</a><a href="#catalog" data-filter-link="audio">Аудио</a><a href="#catalog" data-filter-link="accessory">Аксессуары</a></div><div class="footer-column"><strong>Информация</strong><a href="#service">О магазине</a><a href="#howItWorks">Как устроено демо</a><a href="#reviews">Отзывы</a><a href="#catalog" data-filter-link="all">Все товары</a></div><div class="footer-contact"><strong>Давайте на связи</strong><a href="mailto:hello@nexus-demo.example">hello@nexus-demo.example</a><span>Пн–Вс · 09:00–22:00</span><button type="button" class="footer-search" id="footerSearch">Найти устройство <span>→</span></button></div></div><div class="container footer-bottom"><span>© 2026 NEXUS · учебный проект</span><a href="#top">Наверх ↑</a></div></footer>
 
-  <div class="overlay" id="overlay"></div>
-  <aside class="cart-drawer" id="cartDrawer"><div class="drawer-head"><h3>Корзина</h3><button class="close-btn" id="closeCart">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-empty" id="cartEmpty"><div class="empty-icon">□</div><h4>Здесь пока пусто</h4><p>Добавьте товары, и они появятся здесь.</p></div><div class="cart-summary"><div><span>Итого</span><strong id="cartTotal">0 ₽</strong></div><button class="btn btn-primary checkout">Оформить заказ</button><small>Демонстрационная логика оформления заказа.</small></div></aside>
+  <dialog class="search-dialog" id="searchDialog" aria-labelledby="searchTitle"><div class="dialog-top"><div><div class="eyebrow"><span class="eyebrow-line"></span> ПОИСК ПО КАТАЛОГУ</div><h2 id="searchTitle">Что вы ищете?</h2></div><button class="dialog-close" type="button" data-close-dialog="searchDialog" aria-label="Закрыть поиск">×</button></div><label class="search-input-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="searchInput" type="search" placeholder="Например, смартфон или наушники" autocomplete="off"><kbd>ESC</kbd></label><div class="search-caption" id="searchCaption">Популярные товары</div><div class="search-results" id="searchResults"></div></dialog>
 
-  <div class="modal" id="productModal"><div class="modal-card"><button class="modal-close" id="closeModal">×</button><div id="modalContent"></div></div></div>
-  <div class="toast" id="toast">Товар добавлен в корзину</div>
-  <script src="app.js"></script>
+  <dialog class="product-dialog" id="productDialog" aria-label="Информация о товаре"><button class="dialog-close product-dialog-close" type="button" data-close-dialog="productDialog" aria-label="Закрыть">×</button><div id="productDetails"></div></dialog>
+
+  <dialog class="cart-dialog" id="cartDialog" aria-labelledby="cartTitle"><div class="cart-header"><div><div class="eyebrow"><span class="eyebrow-line"></span> ВАШ ВЫБОР</div><h2 id="cartTitle">Корзина <span class="cart-title-count" id="cartTitleCount"></span></h2></div><button class="dialog-close" type="button" data-close-dialog="cartDialog" aria-label="Закрыть корзину">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-empty" id="cartEmpty"><span class="empty-orbit">N</span><h3>Пока здесь пусто</h3><p>Добавьте устройство из каталога, и оно появится в корзине.</p><button type="button" class="button button-dark" id="continueShopping">Продолжить выбор <span>→</span></button></div><div class="cart-summary" id="cartSummary"><div class="summary-line"><span>Товары</span><span id="cartSubtotal">0 ₽</span></div><div class="summary-line summary-delivery"><span>Доставка</span><span>Бесплатно</span></div><div class="summary-total"><strong>Итого</strong><strong id="cartTotal">0 ₽</strong></div><button class="button button-primary checkout-button" type="button" id="openCheckout">Перейти к оформлению <span>→</span></button><p>Заказ демонстрационный — оплата не производится.</p></div></dialog>
+
+  <dialog class="checkout-dialog" id="checkoutDialog" aria-labelledby="checkoutTitle"><div class="dialog-top"><div><div class="eyebrow"><span class="eyebrow-line"></span> ФИНИШНАЯ ПРЯМАЯ</div><h2 id="checkoutTitle">Оформление заказа</h2></div><button class="dialog-close" type="button" data-close-dialog="checkoutDialog" aria-label="Закрыть">×</button></div><div class="checkout-layout"><form class="checkout-form" id="checkoutForm"><p class="form-intro">Заполните форму — покажем, как выглядел бы заказ. Данные останутся в вашем браузере.</p><label>Ваше имя<input name="name" autocomplete="name" required minlength="2" placeholder="Например, Анна"></label><label>Телефон<input name="phone" type="tel" autocomplete="tel" required minlength="7" placeholder="+7 900 000-00-00"></label><label>Город и адрес доставки<input name="address" autocomplete="street-address" required minlength="5" placeholder="Москва, улица и дом"></label><label>Способ доставки<select name="delivery"><option>Курьером до двери</option><option>Самовывоз из пункта выдачи</option></select></label><label>Комментарий к заказу <span class="optional-label">необязательно</span><textarea name="comment" rows="2" placeholder="Например, позвонить перед доставкой"></textarea></label><div class="checkout-submit-row"><button class="button button-primary" type="submit">Подтвердить демо-заказ <span>→</span></button><small>Без оплаты и отправки</small></div></form><aside class="checkout-summary"><strong>Ваш заказ</strong><div id="checkoutItems"></div><div class="checkout-total"><span>Итого</span><strong id="checkoutTotal">0 ₽</strong></div><div class="checkout-safe">✓<span>Это учебный сценарий.<br>Платёжные данные не запрашиваются.</span></div></aside></div><div class="order-success" id="orderSuccess" hidden><span class="success-check">✓</span><div class="eyebrow"><span class="eyebrow-line"></span> ДЕМО ЗАВЕРШЕНО</div><h3>Спасибо!<br>Заказ оформлен.</h3><p id="successMessage"></p><div class="success-order-number">НОМЕР ЗАКАЗА <strong id="successOrderNumber"></strong></div><button type="button" class="button button-dark" id="finishOrder">Вернуться к каталогу <span>→</span></button></div></dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
 </body>
 </html>
